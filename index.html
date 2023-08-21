@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Частина для встввки на сайт в тег head - початок -->
+
+<!--
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+-->
+
+<!--
+<link rel="stylesheet" href="calculator.css">
+-->
+
+<style>
+.main-container {
+  border: 1px solid #0f0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin: 0;
+  padding: 0;
+}
+
+.input-container {
+  border: 1px solid #f00;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 400px) {
+  .input-container {
+    flex-direction: column;
+  }
+  .range-container .radio-container {
+    width: 100%;
+  }
+
+}
+@media (min-width: 600px) {
+  .input-container {
+    flex-direction: raw;
+  }
+  .range-container .radio-container {
+    width: 100%
+  }
+}
+
+.range-container {
+  border: 1px solid #00f;
+  padding: 0 10px;
+}
+
+/* Input Range */
+
+/********** Range Input Styles **********/
+/*Range Reset*/
+input[type="range"] {
+   -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+/***** Chrome, Safari, Opera and Edge Chromium styles *****/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+   background-color: #053a5f;
+   border-radius: 0.5rem;
+   height: 0.5rem;  
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+   appearance: none;
+   margin-top: -12px; /* Centers thumb on the track */
+
+   /*custom styles*/
+   background-color: #ffcc00;
+   height: 2rem;
+   width: 1rem;
+   border-radius: 0.5rem;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {   
+  border: 1px solid #053a5f;
+  outline: 3px solid #053a5f;
+  outline-offset: 0.125rem; 
+}
+
+/******** Firefox styles ********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+   background-color: #053a5f;
+   border-radius: 0.5rem;
+   height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+   border: none; /*Removes extra border that FF applies*/
+   border-radius: 0; /*Removes default border-radius that FF applies*/
+
+   /*custom styles*/
+   background-color: #ffcc00;
+   height: 2rem;
+   width: 1rem;
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+  border: 1px solid #053a5f;
+  outline: 3px solid #053a5f;
+  outline-offset: 0.125rem; 
+}
+/* End Input Range */
+
+/* Radio Input */
+.radio-container {
+  border: 1px solid #00f;
+  padding: 0 10px;
+}
+
+.radio-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+/* End of Radio Input */
+
+
+
+.chart-container {
+  width: 90%;
+  margin: auto;
+}
+
+.advantages-container {
+  border: 1px solid #f00;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.heatpump_image {
+  border: 1px solid #00F;
+  width: 512px;
+  padding: 0 20px;
+}
+.heatpump_advantages {
+  border: 1px solid #00F;
+  width: 512px;
+  margin: 0;
+  padding: 0 20px;
+}
+/*
+Range
+Radio buttons
+flexbox -> range + radio
+
+Chart 
+90% width
+
+Comparison images:
+flexbox -> image Heater + VS + image HeatPump
+*/
+</style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+  <!--<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
+  <script type="text/javascript" src="calculator.js"></script>
+  <!-- Частина для встввки на сайт в тег head - кінець -->
+<script type="text/javascript">
+    window.onresize = function widthResizer(){
+      var width = window.innerWidth;
+      document.getElementById("screenWidth").innerHTML = width;
+    }
+</script>
+
+</head>
+
+<body>
+  <!-- Частина для встввки на сайт - початок -->
+  <p id="screenWidth">Screen size here</p>
+  <div id="main">
+    <div class="main-container">
+      
+      <section id="input" class="input-container">
+
+        <section id="expences_choosing" class="range-container">
+          <h2>Витрати на опалення:</h2>
+          <div class="range-slider">
+            <span id="calc-label" class="range-label">3000</span>
+            <input id="calc_expences" class="calc_expences" type="range" value="3000" min="0" max="20000" step="100">  
+            <div class="range-minmax">
+              <span>0</span><span>20 000</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="fueltype_choosing" class="radio-container">
+          <h2>Джерело теплової енергії:</h2>
+          <div class="radio-buttons">
+
+            <label class="custom-radio">
+              <span class="radio-btn">
+                <div class="hobbies-icon fueltype_img_btn">
+                  <img id="elektro_img" src="img/electricity.png"><br>
+                  <input type="radio" name="fueltype" id="electrokotel" checked>
+                  <h3 class="">Електрика<br><span>2.64₴ за кВт</span></h3>
+                </div>
+              </span>
+            </label>
+            
+            <label class="custom-radio">
+              <span class="radio-btn">
+                <div class="hobbies-icon fueltype_img_btn">
+                  <img id="gas_img" class="grayscale" src="img/gas.png"><br>
+                  <input type="radio" name="fueltype" id="gaskotel">
+                  <h3 class="">Газ<br><span>7.96₴ за м³</span></h3>
+                </div>
+              </span>
+            </label>
+            
+            <label class="custom-radio">
+                <span class="radio-btn">
+                  <div class="hobbies-icon fueltype_img_btn">
+                    <img id="tverdo_img" class="grayscale" src="img/wood.png"><br>
+                    <input type="radio" name="fueltype" id="tverdotoplkotel">
+                    <h3 class="">Дрова<br><span>8₴ за кг</span></h3>
+                  </div>
+                </span>
+            </label> 
+
+          </div>
+        </section>
+
+      </section>
+
+      <section id="output">
+        
+        <div id="chart-container" class="chart-container"  >
+          <canvas id="horizontalBarChartCanvas" ></canvas>
+        </div>
+
+        <div id="compearing_container" class="advantages-container">
+          
+          <div id="picked_fueltype" class="heatpump_image">
+            <div id="" class="fueltype_img">
+              <span class="compearing_item">
+                <!--
+                <div class="hobbies-icon fueltype_img_container">
+                  <img id="fueltype_img" src="img/elektro_kotel.png">
+                </div>
+                <p>VS</p>
+                -->
+                
+                <div class="hobbies-icon fueltype_img_container">
+                  <img src="img/tepl_nasos_hg.png">
+                </div>
+              </span>
+            </div>
+          </div>
+
+          <div id="adv_descr" class="heatpump_advantages">
+            <h2>Переваги теплового насосу:</h2>
+            <ul>
+              <li><span class="material-symbols-outlined">check</span> Ваша щомісячна економія <span id="economy"></span> ₴</li>
+              <li><span class="material-symbols-outlined">check</span> Висока енергоефективність</li>
+              <li><span class="material-symbols-outlined">check</span> Довший термін служби</li>
+              <li><span class="material-symbols-outlined">check</span> Можливість охолодження</li>
+              <li class="li_elektro"><span class="material-symbols-outlined">check</span> Прості в обслуговуванні</li>
+              <li><span class="material-symbols-outlined"> check</span> Віддалене управління</li>
+              <li class="li_elektro"><span class="material-symbols-outlined">check</span> Абсолютна екологічність</li>
+              <li class="li_tverdo"><span class="material-symbols-outlined">check</span> Працює без Вашого втручання</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </section>
+    </div>
+    
+    
+  </div>
+  <!-- Частина для встввки на сайт - кінець -->
+
+</body>
+</html>

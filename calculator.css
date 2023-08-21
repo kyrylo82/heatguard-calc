@@ -1,0 +1,615 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,400i,700");
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto;
+  align-content: center;
+}
+
+
+:root {
+  --secondary-color: #F6CC00;
+  --line-height: 1.5;
+  --background-color: #fff;
+  --text-color: #000000;
+  --line-color: #ededef;
+}
+
+#main {
+  font-family: Raleway, sans-serif;
+  max-width: 1140px;
+  margin: auto;
+}
+
+#main > h1 {
+  margin: 1vw;
+  text-align: center;
+}
+
+#main > h3 {
+  font-size: 1.5vw;
+}
+
+#main .main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#input {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1vw;
+}
+
+.main-container h2 {
+  margin: 20px 1vw 20px 1vw;
+  color: black;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.main-container section {
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+}
+
+.grayscale {
+  filter: grayscale(1);
+}
+
+.radio-buttons {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.custom-radio input {
+  display: none;
+}
+
+.radio-btn {
+  margin: 10px;
+  width: 150px;
+  border: 3px solid transparent;
+  display: inline-block;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 0 20px #c3c3c367;
+  cursor: pointer;
+}
+
+canvas {
+  display: inline-block;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+
+.radio-btn>i {
+  color: #ffffff;
+  background-color: #F6CC00;
+  font-size: 20px;
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%) scale(2);
+  border-radius: 50px;
+  padding: 3px;
+  transition: 0.5s;
+  pointer-events: none;
+  opacity: 0;
+}
+
+
+.radio-btn .hobbies-icon .radio-btn .hobbies-icon img {
+  display: block;
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+.hobbies-icon img {
+  height: 100px;
+  padding: 20px;
+}
+
+.hobbies-icon span {
+  text-transform: none;
+}
+
+.radio-btn .hobbies-icon i {
+  color: #000000;
+  line-height: 80px;
+  font-size: 60px;
+}
+
+.radio-btn .hobbies-icon h3 {
+  color: #000000;
+  font-size: 13px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.custom-radio input:checked+.radio-btn {
+  border: 2px solid #F6CC00;
+}
+
+.custom-radio input:checked+.radio-btn>i {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+
+#input input[type="range"] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 70%;
+  transition: all 0.265ms ease-out;
+}
+
+#input input[type="range"]:not(:last-of-type) {
+  margin-top: 0;
+  margin-bottom: 2.5em;
+}
+
+#input input[type="range"]:focus {
+  outline: none;
+}
+
+#input input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: var(--line-color);
+}
+
+#input input[type="range"]::-webkit-slider-thumb {
+  box-shadow: 0 0 8px 1px var(--secondary-color),
+    0 0 16px 4px var(--background-color);
+  border: 3px solid #fff;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: var(--secondary-color);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -8px;
+}
+
+#input input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: var(--secondary-color);
+}
+
+#input input[type="radio"] {
+  -webkit-appearance: none;
+  display: none;
+}
+
+.main-container input[type="radio"]+label {
+  border: 1px solid rgba(0, 0, 0, 0);
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+}
+
+.main-container input[type="radio"]:checked+label {
+  background-color: var(--line-color);
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: var(--text-color);
+}
+
+.main-container input[type="radio"]:focus+label {
+  border: 1px solid var(--secondary-color);
+}
+
+.main-container:first-child input[type="radio"]:checked+label {
+  border-radius: 0.5em 0 0 0.5em;
+}
+
+.main-container:last-child input[type="radio"]:checked+label {
+  border-radius: 0 0.5em 0.5em 0;
+}
+
+#input input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: var(--line-color);
+}
+
+#input input[type="range"]::-moz-range-thumb {
+  box-shadow: 0 0 8px 1px var(--secondary-color),
+    0 0 16px 4px var(--background-color);
+  border: 3px solid #000000;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: var(--secondary-color);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -8px;
+}
+
+#main form {
+  margin: auto;
+  width: 750px;
+}
+
+#main form label,
+#main form input[type=radio] {
+  display: block;
+}
+
+#main form label {
+  float: left;
+  clear: both;
+  margin-right: 10px;
+}
+
+.calc-label {
+  position: relative;
+  transform-origin: center center;
+  display: block;
+  width: 8vw;
+  background: transparent;
+  border-radius: 50%;
+  line-height: 30px;
+  text-align: center;
+  font-weight: bold;
+  box-sizing: border-box;
+  margin: auto;
+  left: attr(value);
+  color: #000000;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 2vw;
+}
+
+.calc-label::after {
+  content: "₴";
+  display: inline;
+  font-size: 2vw;
+  letter-spacing: 0.07em;
+}
+
+.box-minmax {
+  margin: auto;
+  margin-bottom: 2vw;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  color: #000000;
+}
+
+.box-minmax span:first-child {
+  margin-left: 10px;
+}
+
+#picked_fueltype {
+  margin: 2vw;
+
+}
+
+#heatguard_fueltype {
+  margin: 2vw;
+  width: 30vw;
+}
+
+#compearing_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.range-slider {
+  margin: 2vw;
+}
+
+.compearing_item {
+  display: flex;
+  border: 1vw solid transparent;
+  border-radius: 1vw;
+  position: relative;
+  text-align: center;
+
+}
+
+.compearing_item h3 {
+  margin: 1vw;
+}
+
+
+.coins_img {
+  height: 5vw;
+}
+
+.coins_expences {
+  /* display: flex; */
+  display: none;
+}
+
+#higi_container {
+  display: flex;
+  flex-direction: row;
+}
+
+#higi_img {
+  width: 50%;
+}
+
+#higi_img img {
+  width: 60%;
+}
+
+#higi_text {
+  width: 50%;
+  border-radius: 15px;
+  border: 2px solid #1A1A1A;
+}
+
+#higi_text span {
+  font-size: 2vw;
+}
+
+#calculate_btn {
+  width: 350px;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 1vw;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+}
+
+.fueltype_img_container img {
+  height: 200px;
+  padding: 10px;
+}
+
+#calculate_btn:disabled {
+  pointer-events: none;
+}
+
+#calculate_btn:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+#calculate_btn:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+#higi_text {
+  color: #555;
+  font-size: 4vw;
+  font-weight: 300;
+  padding: 2vw;
+  margin: 2vw;
+}
+
+
+#output {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+#chart-container {
+  width: 95%;
+}
+
+#adv_descr {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#adv_descr ul {
+  text-align: start;
+  list-style-type: none;
+  line-height: var(--line-height);
+  font-size: 1vw;
+}
+
+
+.material-symbols-outlined {
+  font-size: 1.5vw;
+}
+
+.material-symbols-outlined {
+  color: green;
+}
+
+.li_elektro {
+  display: none;
+}
+
+
+/* адаптив */
+
+
+
+
+@media screen and (max-width: 1500px) {
+  .radio-btn .hobbies-icon h3 {
+    font-size: 13px;
+  }
+
+}
+
+@media screen and (max-width: 1100px) {
+  #adv_descr ul {
+    text-align: start;
+    list-style-type: none;
+    line-height: var(--line-height);
+    font-size: 1.5vw;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #adv_descr ul {
+    text-align: start;
+    list-style-type: none;
+    line-height: var(--line-height);
+    font-size: 2vw;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  #input {
+    flex-direction: column;
+  }
+
+  .radio-btn {
+    width: 140px;
+    margin: 1vw;
+    margin-bottom: 3vw;
+    border: 1px solid transparent;
+
+  }
+
+  .radio-btn .hobbies-icon h3 {
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  #calculate_btn {
+    width: 250px;
+    margin: 7vw;
+  }
+
+  #main > h1 {
+    margin: 4vw;
+    font-size: 3vw;
+  }
+
+  .main-container h2 {
+    margin: 0 1vw;
+    font-size: 4vw;
+  }
+
+  .fueltype_img_container img {
+    height: 100px;
+    padding: 10px;
+  }
+
+  .calc-label {
+    padding-top: 3vw;
+    font-size: 3vw;
+  }
+
+  .calc-label::after {
+    font-size: 3vw;
+  }
+
+  #main > input[type="range"] {
+    width: 80%;
+    margin: 3px 0;
+
+  }
+
+  #higi_text span {
+    font-size: 3vw;
+  }
+
+  .box-minmax {
+    width: 80%;
+    margin-bottom: 5vw;
+    font-size: 3.5vw;
+  }
+
+  #main > h3 {
+    font-size: 2.5vw;
+  }
+
+  .fueltype_img_btn img {
+    height: 90px;
+    padding: 10px;
+  }
+
+  #chart-container {
+    width: 90vw
+  }
+
+  #adv_descr ul {
+    text-align: start;
+    list-style-type: none;
+    line-height: var(--line-height);
+    font-size: 3vw;
+    margin: 3vw;
+  }
+
+  .material-symbols-outlined {
+    font-size: 3vw;
+  }
+
+}
+
+@media screen and (max-width: 469px) {
+  #input {
+    flex-direction: column;
+  }
+
+  .radio-btn {
+    width: 90px;
+  }
+
+  .radio-btn .hobbies-icon h3 {
+    font-size: 7px;
+  }
+
+  #main > h1 {
+    font-size: 4vw;
+  }
+
+  .main-container h2 {
+    font-size: 5vw;
+  }
+
+  #adv_descr ul {
+    font-size: 4vw;
+  }
+
+  .calc-label {
+    font-size: 4vw;
+  }
+}
